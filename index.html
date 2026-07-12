@@ -8,19 +8,19 @@
     <!-- Fuentes e Iconos Premium -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 
     <style>
         :root {
-            --primary: #1b3817;       /* Verde campo premium */
-            --primary-light: #284e23;
-            --accent: #b8874c;        /* Tono madera noble / dorado */
-            --accent-dark: #916433;
-            --dark: #0f140e;
-            --light: #f4f7f3;
+            --primary: #142b11;       /* Verde bosque profundo muy elegante */
+            --primary-light: #22421e;
+            --accent: #b58043;        /* Dorado madera premium */
+            --accent-dark: #8f602d;
+            --dark: #0b100a;
+            --light: #f3f6f2;
             --white: #ffffff;
-            --shadow: 0 15px 35px rgba(0,0,0,0.06);
+            --shadow: 0 20px 40px rgba(0,0,0,0.05);
             --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
@@ -60,9 +60,9 @@
             -webkit-backdrop-filter: blur(20px);
             position: fixed;
             top: 0; left: 0; width: 100%; z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.02);
+            box-shadow: 0 2px 24px rgba(0,0,0,0.02);
             border-bottom: 1px solid rgba(0,0,0,0.04);
-            padding: 15px 0;
+            padding: 12px 0;
         }
 
         .nav-flex {
@@ -74,43 +74,41 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
             text-decoration: none;
             color: var(--primary);
         }
 
-        .logo-icon {
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            color: var(--white);
-            width: 46px;
-            height: 46px;
+        /* Contenedor del Logo del Caballo */
+        .logo-horse {
+            width: 50px;
+            height: 50px;
+            fill: var(--primary);
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(27,56,23,0.15);
         }
 
         .logo-text {
-            font-size: 1.4rem;
+            font-size: 1.45rem;
             letter-spacing: -0.5px;
             display: flex;
             flex-direction: column;
-            line-height: 1.1;
+            line-height: 1.05;
         }
 
         .logo-text span {
             font-size: 0.75rem;
-            font-weight: 500;
+            font-weight: 600;
             color: var(--accent-dark);
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-top: 2px;
+            letter-spacing: 2.5px;
+            margin-top: 3px;
         }
 
         .nav-menu {
             display: flex;
-            gap: 30px;
+            gap: 35px;
             list-style: none;
         }
 
@@ -118,6 +116,7 @@
             text-decoration: none;
             color: var(--dark);
             font-weight: 500;
+            font-size: 0.95rem;
             transition: var(--transition);
         }
 
@@ -145,31 +144,31 @@
             background: linear-gradient(135deg, var(--accent), var(--accent-dark));
             color: var(--white);
             text-decoration: none;
-            padding: 12px 26px;
+            padding: 12px 28px;
             border-radius: 30px;
             font-weight: 600;
             font-size: 0.95rem;
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            box-shadow: 0 5px 15px rgba(184,135,76,0.3);
+            box-shadow: 0 6px 20px rgba(181,128,67,0.25);
             transition: var(--transition);
             border: none;
             cursor: pointer;
         }
 
         .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(184,135,76,0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(181,128,67,0.35);
         }
 
         /* HERO SECTION */
         .hero {
             position: relative;
-            min-height: 90vh;
+            min-height: 88vh;
             display: flex;
             align-items: center;
-            background: #121911;
+            background: #0f140f;
             padding-top: 100px;
             overflow: hidden;
         }
@@ -189,17 +188,18 @@
             animation: sliderAnim 14s infinite;
         }
 
+        /* Mapeo con la extensión duplicada de tus archivos reales */
         .hero-bg-slide:nth-child(1) {
-            background-image: linear-gradient(to right, rgba(15,20,14,0.95) 45%, rgba(15,20,14,0.3)), url('trabajo1.jpg');
+            background-image: linear-gradient(to right, rgba(11,16,10,0.96) 45%, rgba(11,16,10,0.2)), url('trabajo1.jpg.jpg');
             animation-delay: 0s;
         }
         .hero-bg-slide:nth-child(2) {
-            background-image: linear-gradient(to right, rgba(15,20,14,0.95) 45%, rgba(15,20,14,0.3)), url('trabajo5.jpg');
+            background-image: linear-gradient(to right, rgba(11,16,10,0.96) 45%, rgba(11,16,10,0.2)), url('trabajo5.jpg.jpg');
             animation-delay: 7s;
         }
 
         @keyframes sliderAnim {
-            0%, 8% { opacity: 0; transform: scale(1.05); }
+            0%, 8% { opacity: 0; transform: scale(1.04); }
             16%, 48% { opacity: 1; transform: scale(1); }
             56%, 100% { opacity: 0; transform: scale(1); }
         }
@@ -210,13 +210,13 @@
         }
 
         .hero-content {
-            max-width: 700px;
+            max-width: 720px;
             color: var(--white);
         }
 
         .hero-tag {
             display: inline-block;
-            background: rgba(184,135,76,0.15);
+            background: rgba(181,128,67,0.15);
             border: 1px solid var(--accent);
             color: var(--accent);
             padding: 6px 18px;
@@ -229,7 +229,7 @@
         }
 
         .hero h1 {
-            font-size: 3.6rem;
+            font-size: 3.8rem;
             line-height: 1.1;
             margin-bottom: 25px;
             letter-spacing: -1px;
@@ -238,7 +238,7 @@
         .hero p {
             font-size: 1.25rem;
             color: rgba(255,255,255,0.85);
-            margin-bottom: 35px;
+            margin-bottom: 40px;
             font-weight: 300;
         }
 
@@ -258,10 +258,10 @@
         .btn-secondary:hover {
             background: var(--white);
             color: var(--primary);
-            transform: translateY(-3px);
+            transform: translateY(-2px);
         }
 
-        /* SECCIÓN POR QUÉ ELEGIRNOS */
+        /* SECCIÓN VENTAJAS */
         .features-section {
             padding: 100px 0;
             background: var(--white);
@@ -325,7 +325,7 @@
             font-size: 0.95rem;
         }
 
-        /* SECCIÓN PORTAFOLIO DE PROYECTOS REALES */
+        /* SECCIÓN GALERÍA */
         .portfolio-section {
             padding: 100px 0;
             background-color: var(--light);
@@ -349,7 +349,7 @@
 
         .gallery-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.08);
         }
 
         .card-img-wrapper {
@@ -367,14 +367,14 @@
         }
 
         .gallery-card:hover img {
-            transform: scale(1.05);
+            transform: scale(1.04);
         }
 
         .card-tag {
             position: absolute;
             bottom: 20px;
             left: 20px;
-            background: rgba(15,20,14,0.9);
+            background: rgba(20,43,17,0.92);
             color: var(--white);
             padding: 6px 16px;
             border-radius: 30px;
@@ -433,7 +433,6 @@
             font-weight: 600;
             color: var(--primary);
             cursor: pointer;
-            position: relative;
         }
 
         .accordion-label::after {
@@ -469,7 +468,7 @@
 
         /* BANNER CTA FINAL */
         .cta-banner {
-            background: linear-gradient(135deg, var(--primary), #0a1409);
+            background: linear-gradient(135deg, var(--primary), #071206);
             color: var(--white);
             padding: 100px 0;
             text-align: center;
@@ -540,13 +539,13 @@
         /* RESPONSIVE */
         @media (max-width: 992px) {
             .nav-menu { display: none; }
-            .hero h1 { font-size: 2.8rem; }
+            .hero h1 { font-size: 3rem; }
         }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.3rem; }
-            .cta-banner h2 { font-size: 2.1rem; }
-            .phone-pulse-btn { font-size: 1.3rem; padding: 16px 32px; }
+            .hero h1 { font-size: 2.4rem; }
+            .cta-banner h2 { font-size: 2.2rem; }
+            .phone-pulse-btn { font-size: 1.35rem; padding: 16px 32px; }
             .gallery-grid { grid-template-columns: 1fr; }
             .nav-cta .phone-link { display: none; }
             .footer-flex { flex-direction: column; gap: 15px; text-align: center; }
@@ -559,9 +558,11 @@
     <header>
         <div class="container nav-flex">
             <a href="#" class="logo">
-                <div class="logo-icon">
-                    <span class="material-symbols-outlined">agriculture</span>
-                </div>
+                <!-- LOGO VECTORIAL (SVG) DE CABALLO ESTILIZADO -->
+                <svg class="logo-horse" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M25,80 C30,65 35,55 40,45 C35,42 28,48 22,42 C30,35 42,32 48,20 C50,15 55,5 58,10 C60,12 58,18 62,18 C66,18 70,12 72,15 C75,20 70,30 68,35 C75,32 85,38 90,45 C82,48 75,45 70,52 C68,58 72,68 65,75 C60,65 58,55 52,50 C45,60 35,70 25,80 Z" />
+                    <circle cx="60" cy="28" r="2" fill="#fff"/>
+                </svg>
                 <div class="logo-text">
                     VALLADOS BALEA
                     <span>Estructuras Rurales</span>
@@ -593,15 +594,12 @@
         </div>
         <div class="container">
             <div class="hero-content">
-                <div class="hero-tag">Servicio en toda la Isla</div>
-                <h1>Cerramientos profesionales e instalaciones ecuestres</h1>
+                <div class="hero-tag">Servicio Profesional en toda la Isla</div>
+                <h1>Cerramientos e infraestructura ecuestre de alta gama</h1>
                 <p>Especialistas en montaje de vallados metálicos, pistas redondas, cobertizos y boxes a medida. Diseños robustos pensados para durar toda la vida.</p>
                 <div class="hero-buttons">
                     <a href="#proyectos" class="btn">
                         <span class="material-symbols-outlined">gallery_thumbnail</span> Ver Galería Real
-                    </a>
-                    <a href="tel:+34667891570" class="btn btn-secondary">
-                        <span class="material-symbols-outlined">chat</span> Consultar Técnico
                     </a>
                 </div>
             </div>
@@ -612,7 +610,7 @@
     <section class="features-section" id="ventajas">
         <div class="container">
             <div class="section-header">
-                <h2>¿Por qué confiar en Vallados Balea?</h2>
+                <h2>¿Por qué elegir Vallados Balea?</h2>
                 <p>Nos encargamos de todo el proceso de planificación estructural, garantizando materiales tratados de alta resistencia.</p>
             </div>
             <div class="features-grid">
@@ -635,11 +633,11 @@
         </div>
     </section>
 
-    <!-- PORTAFOLIO COMPLETO REESTRUCTURADO -->
+    <!-- PORTAFOLIO COMPLETO ACTUALIZADO CON TUS NOMBRES REALES -->
     <section class="portfolio-section" id="proyectos">
         <div class="container">
             <div class="section-header">
-                <h2>Catálogo de Trabajos Reales</h2>
+                <h2>Catálogo de Trabajos Realizados</h2>
                 <p>Explora los proyectos que hemos ejecutado directamente en fincas y centros hípicos locales.</p>
             </div>
 
