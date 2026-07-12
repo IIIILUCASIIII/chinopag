@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vallados Balea | Expertos en Cerramientos y Estructuras Rurales</title>
+    <style>
+        /* Variables de diseño */
+        :root {
+            --verde-rural: #2d4a22;
+            --marron-madera: #8b5a2b;
+            --gris-oscuro: #333333;
+            --blanco-fondo: #f9f9f9;
+        }
+
+        /* Estilos Generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--blanco-fondo);
+            color: var(--gris-oscuro);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Encabezado / Navbar */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .header-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-placeholder {
+            background-color: var(--verde-rural);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+        }
+
+        .cta-header a {
+            background-color: var(--marron-madera);
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .cta-header a:hover {
+            background-color: var(--verde-rural);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('IMG-20260703-WA0138.jpg') no-repeat center center/cover;
+            color: white;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+        }
+
+        /* Secciones */
+        section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--verde-rural);
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--marron-madera);
+            margin: 10px auto 0;
+        }
+
+        /* Grid del Portafolio de Trabajos Reales */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .portfolio-item {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .portfolio-info {
+            padding: 20px;
+        }
+
+        .portfolio-info h3 {
+            color: var(--verde-rural);
+            margin-bottom: 10px;
+        }
+
+        /* Sección de Presupuesto Directo */
+        .budget-banner {
+            background-color: var(--verde-rural);
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .budget-banner h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .phone-button {
+            display: inline-block;
+            background-color: #ffffff;
+            color: var(--verde-rural);
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            margin-top: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: transform 0.2s;
+        }
+
+        .phone-button:hover {
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--gris-oscuro);
+            color: #ccc;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-flex {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-flex">
+            <div class="logo-area">
+                <div class="logo-placeholder">&#128052; VALLADOS BALEA</div>
+            </div>
+            <div class="cta-header">
+                <a href="tel:+34667891570">Llamar Ahora</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Vallados y Estructuras Profesionales</h1>
+            <p>Garantía, resistencia y acabados impecables para fincas y terrenos rurales.</p>
+            <a href="tel:+34667891570" class="phone-button">Pide Presupuesto: 667 891 570</a>
+        </div>
+    </section>
+
+    <section id="trabajos">
+        <div class="container">
+            <h2 class="section-title">Nuestros Trabajos</h2>
+            
+            <div class="portfolio-grid">
+                
+                <div class="portfolio-item">
+                    <img src="IMG-20260703-WA0138.jpg" alt="Instalación de vallado de malla metálica">
+                    <div class="portfolio-info">
+                        <h3>Vallados Metálicos</h3>
+                        <p>Cercados perimetrales con postes metálicos robustos y malla de alta tensión, ideal para delimitar fincas extensas con máxima durabilidad.</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="PHOTO-2026-07-11-18-24-10 (1).jpg" alt="Cobertizo rural o refugio para animales">
+                    <div class="portfolio-info">
+                        <h3>Refugios y Cobertizos</h3>
+                        <p>Estructuras y boxes techados con paneles de madera tratada y perfiles de acero galvanizado. Confort y protección para caballos y ganado.</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="PHOTO-2026-07-11-18-24-11 (6).jpg" alt="Comedero techado de madera para exterior">
+                    <div class="portfolio-info">
+                        <h3>Estructuras de Madera y Comederos</h3>
+                        <p>Construcción de comederos y pesebreras de exterior techadas en madera de pino tratada contra la intemperie.</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="IMG-20260703-WA0132.jpg" alt="Pista redonda de entrenamiento con postes de madera">
+                    <div class="portfolio-info">
+                        <h3>Picaderos y Pistas Redondas</h3>
+                        <p>Instalación de cercados circulares robustos en madera torneada, diseñados específicamente para el entrenamiento seguro de caballos.</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="PHOTO-2026-07-11-18-24-14 (1).jpg" alt="Línea de boxes exteriores profesionales">
+                    <div class="portfolio-info">
+                        <h3>Instalaciones Ecuestres Completas</h3>
+                        <p>Montaje de naves de boxes alineados con portones reforzados y sistemas de ventilación superior para centros ecuestres y particulares.</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="IMG-20260703-WA0137.jpg" alt="Cancela metálica de acceso de doble hoja">
+                    <div class="portfolio-info">
+                        <h3>Portones y Accesos</h3>
+                        <p>Fabricación e instalación de cancelas metálicas reforzadas de doble hoja para paso de vehículos pesados y maquinaria agrícola.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="budget-banner">
+        <div class="container">
+            <h2>¿Necesitas un vallado a medida o una estructura para tu finca?</h2>
+            <p>Trabajamos con materiales de primera calidad adaptados a las necesidades del entorno rural de la isla.</p>
+            <p>Haz clic abajo para llamarnos directamente y solicitar tu presupuesto gratuito y sin compromiso.</p>
+            <a href="tel:+34667891570" class="phone-button">&#128222; 667 891 570</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Vallados Balea. Todos los derechos reservados.</p>
+            <p>Especialistas en Cerramientos e Infraestructura Rural.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
