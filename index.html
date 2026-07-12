@@ -1,24 +1,776 @@
-<a href="#" class="logo">
-                <!-- NUEVO LOGO SVG DEFINIDO DE LA CABEZA DE UN CABALLO -->
-                <svg class="logo-horse" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M 25 75 
-                             C 28 65, 30 50, 32 40 
-                             C 24 38, 16 44, 12 36 
-                             C 22 30, 36 26, 42 16 
-                             C 44 12, 48 4, 52 8 
-                             C 54 10, 52 16, 56 16 
-                             C 60 16, 64 10, 66 12 
-                             C 68 15, 66 22, 64 26
-                             C 72 24, 84 28, 88 36 
-                             C 80 40, 72 38, 68 44 
-                             C 66 50, 68 60, 62 66 
-                             C 56 56, 54 48, 48 44 
-                             C 42 52, 34 62, 25 75 Z" />
-                    <!-- Crines estilizadas añadidas para dar fuerza a la silueta -->
-                    <path d="M 42 16 C 38 22, 34 32, 34 42 M 45 12 C 40 18, 38 26, 38 34" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vallados Balea | Cerramientos Profesionales e Infraestructura Ecuestre</title>
+    
+    <!-- Fuentes de Google de Alta Gama -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+    <style>
+        :root {
+            --primary: #0f2411;       /* Verde oliva profundo muy elegante */
+            --primary-light: #1c3d1f;
+            --accent: #c4965d;        /* Dorado premium */
+            --accent-dark: #a3753f;
+            --dark: #111610;
+            --light: #f6f8f5;
+            --white: #ffffff;
+            --shadow-sm: 0 4px 20px rgba(0,0,0,0.02);
+            --shadow-md: 0 15px 40px rgba(15,36,17,0.06);
+            --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, .brand-title {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        /* NAVEGACIÓN PREMIUM */
+        header {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            position: fixed;
+            top: 0; left: 0; width: 100%; z-index: 1000;
+            box-shadow: var(--shadow-sm);
+            border-bottom: 1px solid rgba(0,0,0,0.03);
+            padding: 14px 0;
+        }
+
+        .nav-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+            color: var(--primary);
+        }
+
+        /* DISEÑO DE LA CABEZA DE CABALLO (SVG LIMPIO) */
+        .logo-svg {
+            width: 52px;
+            height: 52px;
+            fill: none;
+            stroke: var(--primary);
+            stroke-width: 2.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+
+        .brand-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+            letter-spacing: 0.5px;
+        }
+
+        .brand-subtitle {
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--accent-dark);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-top: 2px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover {
+            color: var(--accent);
+        }
+
+        .nav-cta {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .phone-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: var(--white);
+            text-decoration: none;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(15,36,17,0.15);
+            transition: var(--transition);
+            border: none;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            box-shadow: 0 6px 20px rgba(196,150,93,0.3);
+        }
+
+        /* HERO SECTION ARQUITECTÓNICO */
+        .hero {
+            position: relative;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            background: #090f0a;
+            padding-top: 100px;
+            overflow: hidden;
+        }
+
+        .hero-bg-slider {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 1;
+        }
+
+        .hero-bg-slide {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            animation: sliderAnim 14s infinite;
+        }
+
+        .hero-bg-slide:nth-child(1) {
+            background-image: linear-gradient(to right, rgba(9,15,10,0.95) 45%, rgba(9,15,10,0.2)), url('trabajo1.jpg.jpg');
+            animation-delay: 0s;
+        }
+        .hero-bg-slide:nth-child(2) {
+            background-image: linear-gradient(to right, rgba(9,15,10,0.95) 45%, rgba(9,15,10,0.2)), url('trabajo5.jpg.jpg');
+            animation-delay: 7s;
+        }
+
+        @keyframes sliderAnim {
+            0%, 8% { opacity: 0; transform: scale(1.05); }
+            16%, 48% { opacity: 1; transform: scale(1); }
+            56%, 100% { opacity: 0; transform: scale(1); }
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content {
+            max-width: 750px;
+            color: var(--white);
+        }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.15);
+            color: var(--accent);
+            padding: 6px 18px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 25px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        /* SECCIÓN VALORES METODOLÓGICOS */
+        .features-section {
+            padding: 120px 0;
+            background: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 80px;
+        }
+
+        .section-header h2 {
+            font-size: 2.8rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: #666;
+            font-weight: 300;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            padding: 50px 35px;
+            background: var(--light);
+            border-radius: 24px;
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.01);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            background: var(--white);
+            box-shadow: var(--shadow-md);
+        }
+
+        .feature-icon {
+            color: var(--accent);
+            font-size: 2.8rem;
+            margin-bottom: 25px;
+            display: inline-block;
+        }
+
+        .feature-card h3 {
+            color: var(--primary);
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        .feature-card p {
+            color: #555;
+            font-size: 1rem;
+        }
+
+        /* PORTAFOLIO DE DISEÑO ESTRUCTURAL */
+        .portfolio-section {
+            padding: 120px 0;
+            background-color: var(--light);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 40px;
+        }
+
+        .gallery-card {
+            background: var(--white);
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .card-img-wrapper {
+            position: relative;
+            width: 100%;
+            height: 340px;
+            overflow: hidden;
+        }
+
+        .gallery-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s ease;
+        }
+
+        .gallery-card:hover img {
+            transform: scale(1.04);
+        }
+
+        .card-tag {
+            position: absolute;
+            top: 25px; right: 25px;
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--primary);
+            padding: 6px 18px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            backdrop-filter: blur(5px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .card-content {
+            padding: 35px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-content h3 {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+        .card-content p {
+            color: #555;
+            font-size: 0.98rem;
+            margin-bottom: 30px;
+        }
+
+        /* SECCIÓN PREGUNTAS FRECUENTES (FAQ) */
+        .faq-section {
+            padding: 120px 0;
+            background: var(--white);
+        }
+
+        .faq-max {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .accordion-item {
+            background: var(--light);
+            margin-bottom: 20px;
+            border-radius: 16px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .accordion-item input {
+            display: none;
+        }
+
+        .accordion-label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 35px;
+            font-weight: 600;
+            color: var(--primary);
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+
+        .accordion-label::after {
+            content: '\e5cf';
+            font-family: 'Material Symbols Outlined';
+            font-size: 1.6rem;
+            transition: transform 0.3s;
+            color: var(--accent);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            padding: 0 35px;
+            background: var(--white);
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+        }
+
+        .accordion-content p {
+            padding-bottom: 24px;
+            color: #555;
+            font-size: 1rem;
+        }
+
+        .accordion-item input:checked ~ .accordion-label::after {
+            transform: rotate(180deg);
+        }
+
+        .accordion-item input:checked ~ .accordion-content {
+            max-height: 250px;
+            padding-top: 10px;
+        }
+
+        /* SECCIÓN CTA BANNER DE CIERRE */
+        .cta-banner {
+            background: linear-gradient(135deg, var(--primary), #09140a);
+            color: var(--white);
+            padding: 110px 0;
+            text-align: center;
+        }
+
+        .cta-banner-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-banner h2 {
+            font-size: 3.2rem;
+            margin-bottom: 25px;
+        }
+
+        .cta-banner p {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 50px;
+            font-weight: 300;
+        }
+
+        .phone-pulse-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            background: var(--white);
+            color: var(--primary);
+            text-decoration: none;
+            padding: 22px 50px;
+            border-radius: 50px;
+            font-size: 1.8rem;
+            font-weight: 800;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+            transition: var(--transition);
+            animation: pulseEffect 2.5s infinite;
+        }
+
+        .phone-pulse-btn:hover {
+            transform: scale(1.03);
+            background: var(--accent);
+            color: var(--white);
+        }
+
+        @keyframes pulseEffect {
+            0% { box-shadow: 0 0 0 0 rgba(255,255,255, 0.4); }
+            70% { box-shadow: 0 0 0 25px rgba(255,255,255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255,255,255, 0); }
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--dark);
+            color: rgba(255,255,255,0.4);
+            padding: 50px 0;
+            font-size: 0.95rem;
+            border-top: 1px solid rgba(255,255,255,0.03);
+        }
+
+        .footer-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 992px) {
+            .nav-menu { display: none; }
+            .hero h1 { font-size: 3.2rem; }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.6rem; }
+            .cta-banner h2 { font-size: 2.3rem; }
+            .phone-pulse-btn { font-size: 1.4rem; padding: 18px 36px; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .nav-cta .phone-link { display: none; }
+            .footer-flex { flex-direction: column; gap: 20px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- MENÚ DE NAVEGACIÓN -->
+    <header>
+        <div class="container nav-flex">
+            <a href="#" class="logo">
+                <!-- LOGO VECTORIAL REFINADO DE LA CARA DE UN CABALLO -->
+                <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Silueta estilizada de la cabeza (oreja, frente, hocico y mandíbula) -->
+                    <path d="M 32 78 C 36 62, 38 48, 40 38 C 32 35, 22 42, 18 34 C 28 28, 44 24, 50 14 C 53 8, 56 6, 58 10 C 60 14, 57 20, 61 20 C 65 20, 68 14, 70 16 C 72 20, 69 28, 67 32 C 76 30, 86 35, 88 44 C 80 48, 72 45, 67 52 C 65 58, 67 66, 61 72" />
+                    <!-- Ojo del caballo -->
+                    <circle cx="56" cy="32" r="2.5" fill="var(--primary)"/>
+                    <!-- Líneas fluidas que dibujan las crines -->
+                    <path d="M 45 22 C 40 30, 38 42, 38 54" />
+                    <path d="M 49 30 C 45 40, 44 50, 44 60" />
                 </svg>
                 <div class="logo-text">
-                    VALLADOS BALEA
-                    <span>Estructuras Rurales</span>
+                    <span class="brand-title">VALLADOS BALEA</span>
+                    <span class="brand-subtitle">Estructuras Rurales</span>
                 </div>
             </a>
+            
+            <ul class="nav-menu">
+                <li><a href="#ventajas">Garantías</a></li>
+                <li><a href="#proyectos">Portafolio</a></li>
+                <li><a href="#faq">Preguntas</a></li>
+            </ul>
+
+            <div class="nav-cta">
+                <a href="tel:+34667891570" class="phone-link">
+                    <span class="material-symbols-outlined">call</span> 667 891 570
+                </a>
+                <a href="tel:+34667891570" class="btn">
+                    <span class="material-symbols-outlined">request_quote</span> Presupuesto Sin Compromiso
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO PRINCIPAL -->
+    <section class="hero">
+        <div class="hero-bg-slider">
+            <div class="hero-bg-slide"></div>
+            <div class="hero-bg-slide"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-tag">
+                    <span class="material-symbols-outlined" style="font-size: 18px;">verified_user</span> Mallorca & Baleares
+                </div>
+                <h1>Cerramientos e infraestructura ecuestre de alta gama</h1>
+                <p>Ingeniería rural y montajes a medida de vallados perimetrales, pistas circulares y boxes de madera. Resistencia de nivel profesional adaptada al entorno.</p>
+                <div class="hero-buttons">
+                    <a href="#proyectos" class="btn">
+                        <span class="material-symbols-outlined">gallery_thumbnail</span> Galería de Proyectos
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VENTAJAS / CORPORATIVO -->
+    <section class="features-section" id="ventajas">
+        <div class="container">
+            <div class="section-header">
+                <h2>Excelencia en Construcción Rural</h2>
+                <p>Nuestra metodología combina materiales premium de alta durabilidad con anclajes diseñados mecánicamente para el terreno de la isla.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <span class="material-symbols-outlined feature-icon">shield_with_heart</span>
+                    <h3>Materiales Tratados</h3>
+                    <p>Madera torneada bajo tratamiento Autoclave Clase IV y perfiles de acero con tratamiento anticorrosivo, ideales para soportar la salinidad y exposición solar directa.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="material-symbols-outlined feature-icon">architecture</span>
+                    <h3>Cimentación y Aplome</h3>
+                    <p>Cálculo riguroso de profundidad y vaciado en cimientos para asegurar que postes y portones resistan impactos y cargas dinámicas de forma estable.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="material-symbols-outlined feature-icon">task_alt</span>
+                    <h3>Ejecución de Obra</h3>
+                    <p>Control absoluto desde el replanteo y la nivelación topográfica previa hasta los anclajes estructurales finales, cumpliendo plazos con precisión técnica.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTAFOLIO COMPLETO ACTUALIZADO CON TUS IMÁGENES REALES (.jpg.jpg) -->
+    <section class="portfolio-section" id="proyectos">
+        <div class="container">
+            <div class="section-header">
+                <h2>Proyectos Ejecutados</h2>
+                <p>Cada imagen corresponde a cerramientos y estructuras reales diseñadas e instaladas directamente por nuestro equipo.</p>
+            </div>
+
+            <div class="gallery-grid">
+                
+                <!-- Trabajo 1 -->
+                <div class="gallery-card">
+                    <div class="card-img-wrapper">
+                        <img src="trabajo1.jpg.jpg" alt="Instalación perimetral de vallado metálico con postes">
+                        <div class="card-tag">Cerramientos Perimetrales</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Vallado Perimetral Metálico</h3>
+                        <p>Instalación limpia en grandes extensiones agrícolas utilizando postes reforzados alineados y malla de torsión simple de alta tensión, optimizando la seguridad y delimitación del terreno rural.</p>
+                        <a href="tel:+34667891570" class="btn">Solicitar Presupuesto</a>
+                    </div>
+                </div>
+
+                <!-- Trabajo 2 -->
+                <div class="gallery-card">
+                    <div class="card-img-wrapper">
+                        <img src="trabajo2.jpg.jpg" alt="Refugio cubierto mixto para ganado y caballos">
+                        <div class="card-tag">Estructuras Ganaderas</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Refugios y Cobertizos de Exterior</h3>
+                        <p>Diseño e integración de boxes abiertos y cobertizos. Estructura modular mixta combinando acero estructural y paneles sólidos de madera tratada con cubiertas aislantes térmicas.</p>
+                        <a href="tel:+34667891570" class="btn">Solicitar Presupuesto</a>
+                    </div>
+                </div>
+
+                <!-- Trabajo 3 -->
+                <div class="gallery-card">
+                    <div class="card-img-wrapper">
+                        <img src="trabajo3.jpg.jpg" alt="Comedero techado de madera para campo">
+                        <div class="card-tag">Carpintería Rural</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Pesebreras y Comederos Techados</h3>
+                        <p>Mobiliario rural pesado para alimentación. Estructuras autoportantes provistas de cubiertas impermeables, fabricadas con maderas seleccionadas para prevenir daños por uso o intemperie.</p>
+                        <a href="tel:+34667891570" class="btn">Solicitar Presupuesto</a>
+                    </div>
+                </div>
+
+                <!-- Trabajo 4 -->
+                <div class="gallery-card">
+                    <div class="card-img-wrapper">
+                        <img src="trabajo4.jpg.jpg" alt="Pista circular ecuestre de madera torneada">
+                        <div class="card-tag">Área Ecuestre</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Picaderos y Pistas Circulares</h3>
+                        <p>Montaje perimetral circular específico para el entrenamiento a la cuerda de caballos. Postes torneados empotrados de forma robusta para garantizar contención y alta seguridad estructural.</p>
+                        <a href="tel:+34667891570" class="btn">Solicitar Presupuesto</a>
+                    </div>
+                </div>
+
+                <!-- Trabajo 5 -->
+                <div class="gallery-card">
+                    <div class="card-img-wrapper">
+                        <img src="trabajo5.jpg.jpg" alt="Nave industrial alineada de boxes de caballos">
+                        <div class="card-tag">Complejos Ecuestres</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Líneas de Boxes Alineadas</h3>
+                        <p>Proyectos de ingeniería de gran envergadura para yeguadas y centros ecuestres. Módulos alineados con herrajes de seguridad reforzados, separadores óptimos y ventilación integrada.</p>
+                        <a href="tel:+34667891570" class="btn">Solicitar Presupuesto</a>
+                    </div>
+                </div>
+
+                <!-- Trabajo 6 -->
+                <div class="gallery-card">
+                    <div class="card-img-wrapper">
+                        <img src="trabajo6.jpg.jpg" alt="Portón metálico reforzado de doble hoja">
+                        <div class="card-tag">Accesos Técnicos</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Cancelas y Portones de Doble Hoja</h3>
+                        <p>Fabricación e instalación de puertas vehiculares industriales de doble hoja. Estructura robusta montada sobre pilares de alta carga para permitir el paso seguro de maquinaria pesada.</p>
+                        <a href="tel:+34667891570" class="btn">Solicitar Presupuesto</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN ACORDEÓN DE PREGUNTAS (FAQ) -->
+    <section class="faq-section" id="faq">
+        <div class="container faq-max">
+            <div class="section-header">
+                <h2>Dudas Frecuentes</h2>
+                <p>Respuestas técnicas sobre los plazos, garantías y el desarrollo del montaje en la finca.</p>
+            </div>
+
+            <div class="accordion-item">
+                <input type="checkbox" id="faq1">
+                <label class="accordion-label" for="faq1">¿Qué durabilidad tienen los materiales empleados?</label>
+                <div class="accordion-content">
+                    <p>Las maderas tratadas en Autoclave Clase IV impiden el ataque de insectos xilófagos y la putrefacción por humedad del suelo, alcanzando una vida útil óptima superior a los 15 años sin requerir tratamientos anuales.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <input type="checkbox" id="faq2">
+                <label class="accordion-label" for="faq2">¿Cómo se gestiona el cálculo del presupuesto?</label>
+                <div class="accordion-content">
+                    <p>Realizamos un estudio previo según el tipo de cerramiento, metros lineales del perímetro y las condiciones orográficas del suelo. Tras esto, emitimos una valoración formal y detallada sin coste ni compromiso.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <input type="checkbox" id="faq3">
+                <label class="accordion-label" for="faq3">¿La instalación incluye la preparación del terreno?</label>
+                <div class="accordion-content">
+                    <p>Sí, dentro de la planificación de la obra asumimos las labores de desbroce puntual y replanteo topográfico del trazado para garantizar una cimentación alineada, nivelada y completamente sólida.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN BANNER CTA DE CONTACTO RÁPIDO -->
+    <section class="cta-banner">
+        <div class="cta-banner-content container">
+            <h2>Planifica la infraestructura de tu propiedad</h2>
+            <p>Contacta de forma directa para concretar una visita técnica al terreno y solicitar un presupuesto a medida desglosado.</p>
+            <a href="tel:+34667891570" class="phone-pulse-btn">
+                <span class="material-symbols-outlined">phone_in_talk</span> LLAMAR AL 667 891 570
+            </a>
+        </div>
+    </section>
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+        <div class="container footer-flex">
+            <p>&copy; 2026 <strong>Vallados Balea</strong>. Todos los derechos reservados.</p>
+            <p>Ingeniería de Cerramientos, Áreas Ecuestres e Infraestructura Rural Rígida.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
