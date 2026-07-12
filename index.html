@@ -3,284 +3,613 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vallados Balea | Expertos en Cerramientos y Estructuras Rurales</title>
+    <title>Vallados Balea | Cerramientos Profesionales e Infraestructura Ecuestre</title>
+    
+    <!-- Fuentes Elegantes y Iconos de Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
     <style>
-        /* Variables de diseño */
         :root {
-            --verde-rural: #2d4a22;
-            --marron-madera: #8b5a2b;
-            --gris-oscuro: #333333;
-            --blanco-fondo: #f9f9f9;
+            --primary: #1e3a1a;       /* Verde bosque premium */
+            --primary-light: #2d5a28;
+            --accent: #b08246;        /* Dorado / Madera noble */
+            --accent-dark: #8e622e;
+            --dark: #121911;          /* Fondo oscuro elegante */
+            --light: #f5f7f4;         /* Fondo claro limpio */
+            --white: #ffffff;
+            --shadow: 0 10px 30px rgba(0,0,0,0.08);
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        /* Estilos Generales */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            background-color: var(--blanco-fondo);
-            color: var(--gris-oscuro);
-            line-height: 1.6;
+            background-color: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .logo-text {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
         }
 
         .container {
-            width: 90%;
-            max-width: 1200px;
+            width: 92%;
+            max-width: 1300px;
             margin: 0 auto;
         }
 
-        /* Encabezado / Navbar */
+        /* BARRA DE NAVEGACIÓN SUPERIOR */
         header {
-            background-color: #ffffff;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            position: sticky;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            position: fixed;
             top: 0;
+            left: 0;
+            width: 100%;
             z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.03);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
             padding: 15px 0;
+            transition: var(--transition);
         }
 
-        .header-flex {
+        .nav-flex {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .logo-area {
+        .logo {
             display: flex;
             align-items: center;
-            gap: 10px;
-        }
-
-        .logo-placeholder {
-            background-color: var(--verde-rural);
-            color: white;
-            padding: 10px 15px;
-            border-radius: 5px;
-            font-weight: bold;
-            font-size: 1.2rem;
-            letter-spacing: 1px;
-        }
-
-        .cta-header a {
-            background-color: var(--marron-madera);
-            color: white;
+            gap: 12px;
             text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background 0.3s;
+            color: var(--primary);
         }
 
-        .cta-header a:hover {
-            background-color: var(--verde-rural);
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('IMG-20260703-WA0138.jpg') no-repeat center center/cover;
-            color: white;
-            height: 60vh;
+        .logo-icon {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: var(--white);
+            width: 45px;
+            height: 45px;
             display: flex;
             align-items: center;
-            text-align: center;
+            justify-content: center;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(30,58,26,0.2);
         }
 
-        .hero-content h1 {
-            font-size: 3rem;
-            margin-bottom: 15px;
+        .logo-text {
+            font-size: 1.4rem;
+            letter-spacing: -0.5px;
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+
+        .logo-text span {
+            font-size: 0.75rem;
+            font-weight: 400;
+            color: var(--accent-dark);
             text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 2px;
         }
 
-        .hero-content p {
-            font-size: 1.3rem;
+        .nav-cta {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .phone-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            color: var(--white);
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 5px 15px rgba(176,130,70,0.3);
+            transition: var(--transition);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(176,130,70,0.4);
+        }
+
+        /* SECCIÓN PRINCIPAL (HERO) */
+        .hero {
+            position: relative;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            background: #121911;
+            padding-top: 100px;
+            overflow: hidden;
+        }
+
+        /* Carrusel en segundo plano con tus fotos reales */
+        .hero-bg-slider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .hero-bg-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            animation: sliderAnim 15s infinite;
+        }
+
+        /* Cargamos dinámicamente dos de tus mejores fotos de fondo */
+        .hero-bg-slide:nth-child(1) {
+            background-image: linear-gradient(to right, rgba(18,25,17,0.95) 40%, rgba(18,25,17,0.4)), url('IMG-20260703-WA0138.jpg');
+            animation-delay: 0s;
+        }
+        .hero-bg-slide:nth-child(2) {
+            background-image: linear-gradient(to right, rgba(18,25,17,0.95) 40%, rgba(18,25,17,0.4)), url('PHOTO-2026-07-11-18-24-14 (1).jpg');
+            animation-delay: 7.5s;
+        }
+
+        @keyframes sliderAnim {
+            0%, 6% { opacity: 0; transform: scale(1.05); }
+            12%, 50% { opacity: 1; transform: scale(1); }
+            56%, 100% { opacity: 0; transform: scale(1); }
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content {
+            max-width: 650px;
+            color: var(--white);
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: rgba(176,130,70,0.2);
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
             margin-bottom: 25px;
         }
 
-        /* Secciones */
-        section {
-            padding: 60px 0;
+        .hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
         }
 
-        .section-title {
+        .hero p {
+            font-size: 1.25rem;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 35px;
+            font-weight: 300;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
+            box-shadow: none;
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* SECCIÓN DE PORTAFOLIO DE TRABAJOS REALES */
+        .portfolio-section {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+
+        .section-header {
             text-align: center;
-            font-size: 2.2rem;
-            color: var(--verde-rural);
-            margin-bottom: 40px;
-            position: relative;
+            max-width: 600px;
+            margin: 0 auto 60px;
         }
 
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 3px;
-            background-color: var(--marron-madera);
-            margin: 10px auto 0;
-        }
-
-        /* Grid del Portafolio de Trabajos Reales */
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-        }
-
-        .portfolio-item {
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
-        }
-
-        .portfolio-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .portfolio-item img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .portfolio-info {
-            padding: 20px;
-        }
-
-        .portfolio-info h3 {
-            color: var(--verde-rural);
-            margin-bottom: 10px;
-        }
-
-        /* Sección de Presupuesto Directo */
-        .budget-banner {
-            background-color: var(--verde-rural);
-            color: white;
-            text-align: center;
-            padding: 50px 20px;
-        }
-
-        .budget-banner h2 {
-            font-size: 2rem;
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
             margin-bottom: 15px;
+            letter-spacing: -0.5px;
         }
 
-        .phone-button {
-            display: inline-block;
-            background-color: #ffffff;
-            color: var(--verde-rural);
-            font-size: 1.8rem;
-            font-weight: bold;
+        .section-header p {
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        /* Grid asimétrico elegante */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 30px;
+        }
+
+        .gallery-card {
+            background: var(--light);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.02);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+        }
+
+        .card-img-wrapper {
+            position: relative;
+            width: 100%;
+            height: 320px;
+            overflow: hidden;
+            background: #e2e8f0;
+        }
+
+        .gallery-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .gallery-card:hover img {
+            transform: scale(1.08);
+        }
+
+        .card-tag {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(18,25,17,0.85);
+            color: var(--white);
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
+
+        .card-content {
+            padding: 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-content h3 {
+            font-size: 1.35rem;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+        .card-content p {
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .card-footer-link {
+            color: var(--accent-dark);
             text-decoration: none;
-            padding: 15px 30px;
-            border-radius: 50px;
-            margin-top: 15px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            transition: transform 0.2s;
-        }
-
-        .phone-button:hover {
-            transform: scale(1.05);
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--gris-oscuro);
-            color: #ccc;
-            text-align: center;
-            padding: 20px 0;
+            font-weight: 700;
             font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: var(--transition);
         }
 
-        /* Responsive */
+        .card-footer-link:hover {
+            gap: 10px;
+            color: var(--primary);
+        }
+
+        /* SECCIÓN CTA BANNER FINAL */
+        .cta-banner {
+            background: linear-gradient(135deg, var(--primary), #0e1e0c);
+            color: var(--white);
+            padding: 90px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-banner::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="none" width="100" height="100"/><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.05)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .cta-banner-content {
+            max-width: 750px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-banner h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        .cta-banner p {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .phone-pulse-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            background: var(--white);
+            color: var(--primary);
+            text-decoration: none;
+            padding: 18px 40px;
+            border-radius: 50px;
+            font-size: 1.6rem;
+            font-weight: 800;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: var(--transition);
+            animation: pulseEffect 2s infinite;
+        }
+
+        .phone-pulse-btn:hover {
+            transform: scale(1.05);
+            background: var(--accent);
+            color: var(--white);
+        }
+
+        @keyframes pulseEffect {
+            0% { box-shadow: 0 0 0 0 rgba(255,255,255, 0.4); }
+            70% { box-shadow: 0 0 0 20px rgba(255,255,255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255,255,255, 0); }
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--dark);
+            color: rgba(255,255,255,0.6);
+            padding: 40px 0;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            font-size: 0.95rem;
+        }
+
+        .footer-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        /* RESPONSIVE */
         @media (max-width: 768px) {
-            .header-flex {
-                flex-direction: column;
-                gap: 15px;
-            }
-            .hero-content h1 {
-                font-size: 2rem;
-            }
+            .hero h1 { font-size: 2.4rem; }
+            .hero p { font-size: 1.1rem; }
+            .cta-banner h2 { font-size: 2rem; }
+            .phone-pulse-btn { font-size: 1.25rem; padding: 14px 30px; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .nav-cta .phone-link { display: none; }
+            .footer-flex { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
 <body>
 
+    <!-- NAVEGACIÓN -->
     <header>
-        <div class="container header-flex">
-            <div class="logo-area">
-                <div class="logo-placeholder">&#128052; VALLADOS BALEA</div>
-            </div>
-            <div class="cta-header">
-                <a href="tel:+34667891570">Llamar Ahora</a>
+        <div class="container nav-flex">
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <span class="material-symbols-outlined">agriculture</span>
+                </div>
+                <div class="logo-text">
+                    VALLADOS BALEA
+                    <span>Estructuras Rurales</span>
+                </div>
+            </a>
+            <div class="nav-cta">
+                <a href="tel:+34667891570" class="phone-link">
+                    <span class="material-symbols-outlined">call</span> 667 891 570
+                </a>
+                <a href="tel:+34667891570" class="btn">
+                    <span class="material-symbols-outlined">request_quote</span> Pedir Presupuesto
+                </a>
             </div>
         </div>
     </header>
 
+    <!-- PORTADA DINÁMICA -->
     <section class="hero">
-        <div class="container hero-content">
-            <h1>Vallados y Estructuras Profesionales</h1>
-            <p>Garantía, resistencia y acabados impecables para fincas y terrenos rurales.</p>
-            <a href="tel:+34667891570" class="phone-button">Pide Presupuesto: 667 891 570</a>
+        <div class="hero-bg-slider">
+            <div class="hero-bg-slide"></div>
+            <div class="hero-bg-slide"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-tag">Mallorca & Baleares</div>
+                <h1>Cercados robustos e instalaciones rurales de primera clase</h1>
+                <p>Construimos vallados, refugios ganaderos y estructuras de madera a medida con acabados impecables y resistencia garantizada.</p>
+                <div class="hero-buttons">
+                    <a href="#proyectos" class="btn">
+                        <span class="material-symbols-outlined">local_activity</span> Ver Trabajos Reales
+                    </a>
+                    <a href="tel:+34667891570" class="btn btn-secondary">
+                        <span class="material-symbols-outlined">support_agent</span> Consultar Ahora
+                    </a>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section id="trabajos">
+    <!-- PORTAFOLIO DE TRABAJOS REALES -->
+    <section class="portfolio-section" id="proyectos">
         <div class="container">
-            <h2 class="section-title">Nuestros Trabajos</h2>
-            
-            <div class="portfolio-grid">
+            <div class="section-header">
+                <h2>Nuestros Trabajos</h2>
+                <p>Cada una de estas obras ha sido fabricada e instalada por nuestro equipo. Calidad estructural sin intermediarios.</p>
+            </div>
+
+            <div class="gallery-grid">
                 
-                <div class="portfolio-item">
-                    <img src="IMG-20260703-WA0138.jpg" alt="Instalación de vallado de malla metálica">
-                    <div class="portfolio-info">
-                        <h3>Vallados Metálicos</h3>
-                        <p>Cercados perimetrales con postes metálicos robustos y malla de alta tensión, ideal para delimitar fincas extensas con máxima durabilidad.</p>
+                <!-- Ítem 1: Finca Vallado Metálico -->
+                <div class="gallery-card">
+                    <div class="card-img-wrapper">
+                        <img src="IMG-20260703-WA0138.jpg" alt="Instalación de vallado de malla metálica" onerror="this.src='https://images.unsplash.com/photo-1508847154043-be12a62861c1?q=80&w=600'">
+                        <div class="card-tag">Cercados de Fincas</div>
+                    </div>
+                    <div class="card-content">
+                        <div>
+                            <h3>Vallado de Torsión Simple</h3>
+                            <p>Instalación perimetral con postes galvanizados alineados y malla de alta tensión. Perfecto para delimitación de grandes extensiones de terreno de forma limpia y duradera.</p>
+                        </div>
+                        <a href="tel:+34667891570" class="card-footer-link">Consultar precio <span class="material-symbols-outlined">arrow_right_alt</span></a>
                     </div>
                 </div>
 
-                <div class="portfolio-item">
-                    <img src="PHOTO-2026-07-11-18-24-10 (1).jpg" alt="Cobertizo rural o refugio para animales">
-                    <div class="portfolio-info">
-                        <h3>Refugios y Cobertizos</h3>
-                        <p>Estructuras y boxes techados con paneles de madera tratada y perfiles de acero galvanizado. Confort y protección para caballos y ganado.</p>
+                <!-- Ítem 2: Cobertizo con Asno -->
+                <div class="gallery-card">
+                    <div class="card-img-wrapper">
+                        <img src="PHOTO-2026-07-11-18-24-10 (1).jpg" alt="Refugio cubierto para animales" onerror="this.src='https://images.unsplash.com/photo-1532434938608-f404e4c278fb?q=80&w=600'">
+                        <div class="card-tag">Infraestructura Ganadera</div>
+                    </div>
+                    <div class="card-content">
+                        <div>
+                            <h3>Refugios Protectores Libres</h3>
+                            <p>Estructuras sólidas mixtas con perfiles metálicos y paneles de madera tratada. Ideados con cubiertas térmicas corrugadas para resguardar eficazmente al ganado y animales de la intemperie.</p>
+                        </div>
+                        <a href="tel:+34667891570" class="card-footer-link">Consultar precio <span class="material-symbols-outlined">arrow_right_alt</span></a>
                     </div>
                 </div>
 
-                <div class="portfolio-item">
-                    <img src="PHOTO-2026-07-11-18-24-11 (6).jpg" alt="Comedero techado de madera para exterior">
-                    <div class="portfolio-info">
-                        <h3>Estructuras de Madera y Comederos</h3>
-                        <p>Construcción de comederos y pesebreras de exterior techadas en madera de pino tratada contra la intemperie.</p>
+                <!-- Ítem 3: Estructura Pesebrera de Madera -->
+                <div class="gallery-card">
+                    <div class="card-img-wrapper">
+                        <img src="PHOTO-2026-07-11-18-24-11 (6).jpg" alt="Comedero exterior de madera" onerror="this.src='https://images.unsplash.com/photo-1594488687196-0351e172e12a?q=80&w=600'">
+                        <div class="card-tag">Estructuras de Madera</div>
+                    </div>
+                    <div class="card-content">
+                        <div>
+                            <h3>Pesebreras y Comederos de Exterior</h3>
+                            <p>Carpintería rural pesada. Comederos auto-portantes techados con madera de pino tratada en autoclave, evitando el desgaste prematuro provocado por la humedad y el sol.</p>
+                        </div>
+                        <a href="tel:+34667891570" class="card-footer-link">Consultar precio <span class="material-symbols-outlined">arrow_right_alt</span></a>
                     </div>
                 </div>
 
-                <div class="portfolio-item">
-                    <img src="IMG-20260703-WA0132.jpg" alt="Pista redonda de entrenamiento con postes de madera">
-                    <div class="portfolio-info">
-                        <h3>Picaderos y Pistas Redondas</h3>
-                        <p>Instalación de cercados circulares robustos en madera torneada, diseñados específicamente para el entrenamiento seguro de caballos.</p>
+                <!-- Ítem 4: Picadero / Pista de Caballos -->
+                <div class="gallery-card">
+                    <div class="card-img-wrapper">
+                        <img src="IMG-20260703-WA0132.jpg" alt="Pista redonda ecuestre" onerror="this.src='https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?q=80&w=600'">
+                        <div class="card-tag">Instalaciones Ecuestres</div>
+                    </div>
+                    <div class="card-content">
+                        <div>
+                            <h3>Pistas Redondas y Picaderos</h3>
+                            <p>Diseño geométrico perfecto empleando postes torneados de madera premium fijados al suelo de forma reforzada, ideal para el trabajo a la cuerda de caballos con total seguridad.</p>
+                        </div>
+                        <a href="tel:+34667891570" class="card-footer-link">Consultar precio <span class="material-symbols-outlined">arrow_right_alt</span></a>
                     </div>
                 </div>
 
-                <div class="portfolio-item">
-                    <img src="PHOTO-2026-07-11-18-24-14 (1).jpg" alt="Línea de boxes exteriores profesionales">
-                    <div class="portfolio-info">
-                        <h3>Instalaciones Ecuestres Completas</h3>
-                        <p>Montaje de naves de boxes alineados con portones reforzados y sistemas de ventilación superior para centros ecuestres y particulares.</p>
+                <!-- Ítem 5: Bloque de Boxes Línea -->
+                <div class="gallery-card">
+                    <div class="card-img-wrapper">
+                        <img src="PHOTO-2026-07-11-18-24-14 (1).jpg" alt="Línea industrial de boxes de caballos" onerror="this.src='https://images.unsplash.com/photo-1601987177651-8edfe6c20009?q=80&w=600'">
+                        <div class="card-tag">Centros Ecuestres</div>
+                    </div>
+                    <div class="card-content">
+                        <div>
+                            <h3>Naves de Boxes Alineados</h3>
+                            <p>Proyectos de gran escala para hípicas o particulares. Módulos integrados con puertas partidas reforzadas, herrajes de seguridad y cerramientos herméticos perimetrales.</p>
+                        </div>
+                        <a href="tel:+34667891570" class="card-footer-link">Consultar precio <span class="material-symbols-outlined">arrow_right_alt</span></a>
                     </div>
                 </div>
 
-                <div class="portfolio-item">
-                    <img src="IMG-20260703-WA0137.jpg" alt="Cancela metálica de acceso de doble hoja">
-                    <div class="portfolio-info">
-                        <h3>Portones y Accesos</h3>
-                        <p>Fabricación e instalación de cancelas metálicas reforzadas de doble hoja para paso de vehículos pesados y maquinaria agrícola.</p>
+                <!-- Ítem 6: Cancela / Portón de Entrada -->
+                <div class="gallery-card">
+                    <div class="card-img-wrapper">
+                        <img src="IMG-20260703-WA0137.jpg" alt="Portón metálico reforzado" onerror="this.src='https://images.unsplash.com/photo-1505628346881-b72b27e84530?q=80&w=600'">
+                        <div class="card-tag">Accesos y Cancelas</div>
+                    </div>
+                    <div class="card-content">
+                        <div>
+                            <h3>Portones y Cancelas de Doble Hoja</h3>
+                            <p>Instalación de puertas vehiculares reforzadas empotradas sobre postes de gran calibre, asegurando un paso limpio de tractores y camiones a la propiedad.</p>
+                        </div>
+                        <a href="tel:+34667891570" class="card-footer-link">Consultar precio <span class="material-symbols-outlined">arrow_right_alt</span></a>
                     </div>
                 </div>
 
@@ -288,19 +617,26 @@
         </div>
     </section>
 
-    <section class="budget-banner">
-        <div class="container">
-            <h2>¿Necesitas un vallado a medida o una estructura para tu finca?</h2>
-            <p>Trabajamos con materiales de primera calidad adaptados a las necesidades del entorno rural de la isla.</p>
-            <p>Haz clic abajo para llamarnos directamente y solicitar tu presupuesto gratuito y sin compromiso.</p>
-            <a href="tel:+34667891570" class="phone-button">&#128222; 667 891 570</a>
+    <!-- BANNER DE LLAMADA A LA ACCIÓN -->
+    <section class="cta-banner">
+        <div class="cta-banner-content container">
+            <h2>¿Quieres solicitar un presupuesto a medida?</h2>
+            <p>Cuéntanos las dimensiones de tu parcela o el tipo de estructura que necesitas y te daremos una valoración detallada, gratuita y sin compromiso.</p>
+            <a href="tel:+34667891570" class="phone-pulse-btn">
+                <span class="material-symbols-outlined">phone_in_talk</span> LLAMAR AL 667 891 570
+            </a>
         </div>
     </section>
 
+    <!-- FOOTER -->
     <footer>
-        <div class="container">
-            <p>&copy; 2026 Vallados Balea. Todos los derechos reservados.</p>
-            <p>Especialistas en Cerramientos e Infraestructura Rural.</p>
+        <div class="container footer-flex">
+            <div>
+                <p>&copy; 2026 <strong>Vallados Balea</strong>. Todos los derechos reservados.</p>
+            </div>
+            <div>
+                <p>Especialistas en Cerramientos, Picaderos y Carpintería Rural Pesada.</p>
+            </div>
         </div>
     </footer>
 
