@@ -13,13 +13,14 @@
 
     <style>
         :root {
-            --primary: #1e521c;        /* Verde forestal del nuevo logo */
+            --primary: #1e521c;        /* Verde forestal del logo */
             --primary-light: #2c6e2a;
-            --accent: #111610;         /* Negro para un contraste elegante */
+            --accent: #111610;         /* Negro para contraste */
             --accent-dark: #0a0d09;
             --dark: #111610;           
             --light: #f6f8f5;
             --white: #ffffff;
+            --whatsapp-color: #25D366; /* Verde oficial de WhatsApp */
             --shadow-sm: 0 4px 20px rgba(0,0,0,0.02);
             --shadow-md: 0 15px 40px rgba(30,82,28,0.06);
             --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
@@ -80,7 +81,6 @@
             color: var(--primary);
         }
 
-        /* AJUSTE DEL NUEVO LOGO */
         .logo-img {
             height: 60px;
             width: auto;
@@ -145,6 +145,23 @@
             gap: 6px;
         }
 
+        /* ESTILO PARA ICONO SVG DE WHATSAPP */
+        .whatsapp-icon {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+            display: inline-block;
+            flex-shrink: 0;
+        }
+
+        .whatsapp-icon-large {
+            width: 32px;
+            height: 32px;
+            fill: currentColor;
+            display: inline-block;
+            flex-shrink: 0;
+        }
+
         .btn {
             background: linear-gradient(135deg, var(--primary), var(--primary-light));
             color: var(--white);
@@ -155,7 +172,7 @@
             font-size: 0.95rem;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             box-shadow: 0 4px 15px rgba(30,82,28,0.15);
             transition: var(--transition);
             border: none;
@@ -165,6 +182,17 @@
             transform: translateY(-2px);
             background: linear-gradient(135deg, var(--dark), var(--primary));
             box-shadow: 0 6px 20px rgba(17,22,16,0.3);
+        }
+
+        /* Botón de WhatsApp específico en tarjetas */
+        .btn-whatsapp-card {
+            background: var(--whatsapp-color);
+            box-shadow: 0 4px 12px rgba(37,211,102,0.2);
+        }
+
+        .btn-whatsapp-card:hover {
+            background: #1ebea5;
+            box-shadow: 0 6px 18px rgba(30,190,165,0.4);
         }
 
         /* HERO SECTION */
@@ -480,28 +508,30 @@
             display: inline-flex;
             align-items: center;
             gap: 15px;
-            background: var(--white);
-            color: var(--primary);
+            background: var(--whatsapp-color);
+            color: var(--white);
             text-decoration: none;
             padding: 22px 50px;
             border-radius: 50px;
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 800;
-            box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+            box-shadow: 0 12px 40px rgba(37,211,102,0.3);
             transition: var(--transition);
             animation: pulseEffect 2.5s infinite;
+            border: none;
         }
 
         .phone-pulse-btn:hover {
             transform: scale(1.03);
-            background: var(--primary-light);
+            background: #1ebea5;
             color: var(--white);
+            box-shadow: 0 12px 40px rgba(30,190,165,0.5);
         }
 
         @keyframes pulseEffect {
-            0% { box-shadow: 0 0 0 0 rgba(255,255,255, 0.4); }
-            70% { box-shadow: 0 0 0 25px rgba(255,255,255, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(255,255,255, 0); }
+            0% { box-shadow: 0 0 0 0 rgba(37,211,102, 0.5); }
+            70% { box-shadow: 0 0 0 25px rgba(37,211,102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37,211,102, 0); }
         }
 
         /* FOOTER */
@@ -529,7 +559,7 @@
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.6rem; }
             .cta-banner h2 { font-size: 2.3rem; }
-            .phone-pulse-btn { font-size: 1.4rem; padding: 18px 36px; }
+            .phone-pulse-btn { font-size: 1.2rem; padding: 18px 36px; }
             .gallery-grid { grid-template-columns: 1fr; }
             .nav-cta .phone-link { display: none; }
             .footer-flex { flex-direction: column; gap: 20px; text-align: center; }
@@ -542,7 +572,6 @@
     <header>
         <div class="container nav-flex">
             <a href="#" class="logo">
-                <!-- LOGO ACTUALIZADO CON LA RUTA LOGO.PNG -->
                 <img class="logo-img" src="logo.png" alt="Logo Corrales y Refugios">
                 <div class="logo-text">
                     <span class="brand-title">Corrales y Refugios</span>
@@ -560,8 +589,12 @@
                 <a href="tel:+34667891570" class="phone-link">
                     <span class="material-symbols-outlined">call</span> 667 891 570
                 </a>
-                <a href="tel:+34667891570" class="btn">
-                    <span class="material-symbols-outlined">request_quote</span> Presupuesto Directo
+                <!-- REDIRECCIÓN WHATSAPP EN MENÚ -->
+                <a href="https://wa.me/34667891570?text=Hola!%20Me%20gustaría%20solicitar%20un%20presupuesto%20para%20un%20proyecto." target="_blank" class="btn">
+                    <svg class="whatsapp-icon" viewBox="0 0 24 24">
+                        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.963C16.59 1.98 14.117.953 11.994.953c-5.44 0-9.866 4.372-9.87 9.802 0 1.714.463 3.39 1.337 4.88l-.99 3.613 3.7-.94c1.5.85 2.92 1.27 4.41 1.27zM17.65 14.3c-.31-.16-1.84-.91-2.12-1.01-.28-.1-.49-.16-.69.16-.21.3-.79.99-.97 1.2-.18.22-.36.24-.67.09-.31-.15-1.3-.49-2.48-1.54-.92-.82-1.54-1.84-1.72-2.15-.18-.31-.02-.47.14-.63.14-.14.31-.36.46-.54.15-.18.2-.3.3-.5.1-.2.05-.38-.03-.54-.08-.16-.69-1.67-.95-2.29-.25-.61-.51-.53-.69-.54-.18-.01-.39-.01-.59-.01-.2 0-.53.07-.8.37-.28.3-1.07 1.05-1.07 2.56s1.09 2.97 1.24 3.17c.15.2 2.15 3.29 5.21 4.61.73.31 1.3.5 1.74.64.73.23 1.39.2 1.92.12.59-.09 1.84-.75 2.1-1.47.26-.71.26-1.32.18-1.46-.08-.14-.3-.22-.61-.38z"/>
+                    </svg>
+                    Presupuesto Directo
                 </a>
             </div>
         </div>
@@ -635,7 +668,12 @@
                     <div class="card-content">
                         <h3>Vallado Perimetral Metálico</h3>
                         <p>Instalación limpia en grandes extensiones agrícolas utilizando postes reforzados alineados y malla de torsión simple de alta tensión, optimizando la seguridad y delimitación del terreno rural.</p>
-                        <a href="tel:+34667891570" class="btn">Solicitar Presupuesto</a>
+                        <a href="https://wa.me/34667891570?text=Hola!%20Me%20interesa%20solicitar%20un%20presupuesto%20para%20un%20Vallado%20Perimetral%20Met%C3%A1lico%20en%20Mallorca." target="_blank" class="btn btn-whatsapp-card">
+                            <svg class="whatsapp-icon" viewBox="0 0 24 24">
+                                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.963C16.59 1.98 14.117.953 11.994.953c-5.44 0-9.866 4.372-9.87 9.802 0 1.714.463 3.39 1.337 4.88l-.99 3.613 3.7-.94c1.5.85 2.92 1.27 4.41 1.27zM17.65 14.3c-.31-.16-1.84-.91-2.12-1.01-.28-.1-.49-.16-.69.16-.21.3-.79.99-.97 1.2-.18.22-.36.24-.67.09-.31-.15-1.3-.49-2.48-1.54-.92-.82-1.54-1.84-1.72-2.15-.18-.31-.02-.47.14-.63.14-.14.31-.36.46-.54.15-.18.2-.3.3-.5.1-.2.05-.38-.03-.54-.08-.16-.69-1.67-.95-2.29-.25-.61-.51-.53-.69-.54-.18-.01-.39-.01-.59-.01-.2 0-.53.07-.8.37-.28.3-1.07 1.05-1.07 2.56s1.09 2.97 1.24 3.17c.15.2 2.15 3.29 5.21 4.61.73.31 1.3.5 1.74.64.73.23 1.39.2 1.92.12.59-.09 1.84-.75 2.1-1.47.26-.71.26-1.32.18-1.46-.08-.14-.3-.22-.61-.38z"/>
+                            </svg>
+                            Solicitar Presupuesto
+                        </a>
                     </div>
                 </div>
 
@@ -648,7 +686,12 @@
                     <div class="card-content">
                         <h3>Refugios y Cobertizos de Exterior</h3>
                         <p>Diseño e integración de boxes abiertos y cobertizos. Estructura modular mixta combinando acero estructural y paneles sólidos de madera tratada con cubiertas aislantes térmicas.</p>
-                        <a href="tel:+34667891570" class="btn">Solicitar Presupuesto</a>
+                        <a href="https://wa.me/34667891570?text=Hola!%20Me%20interesa%20solicitar%20un%20presupuesto%20para%20Refugios%20y%20Cobertizos%20de%20Exterior%20en%20Mallorca." target="_blank" class="btn btn-whatsapp-card">
+                            <svg class="whatsapp-icon" viewBox="0 0 24 24">
+                                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.963C16.59 1.98 14.117.953 11.994.953c-5.44 0-9.866 4.372-9.87 9.802 0 1.714.463 3.39 1.337 4.88l-.99 3.613 3.7-.94c1.5.85 2.92 1.27 4.41 1.27zM17.65 14.3c-.31-.16-1.84-.91-2.12-1.01-.28-.1-.49-.16-.69.16-.21.3-.79.99-.97 1.2-.18.22-.36.24-.67.09-.31-.15-1.3-.49-2.48-1.54-.92-.82-1.54-1.84-1.72-2.15-.18-.31-.02-.47.14-.63.14-.14.31-.36.46-.54.15-.18.2-.3.3-.5.1-.2.05-.38-.03-.54-.08-.16-.69-1.67-.95-2.29-.25-.61-.51-.53-.69-.54-.18-.01-.39-.01-.59-.01-.2 0-.53.07-.8.37-.28.3-1.07 1.05-1.07 2.56s1.09 2.97 1.24 3.17c.15.2 2.15 3.29 5.21 4.61.73.31 1.3.5 1.74.64.73.23 1.39.2 1.92.12.59-.09 1.84-.75 2.1-1.47.26-.71.26-1.32.18-1.46-.08-.14-.3-.22-.61-.38z"/>
+                            </svg>
+                            Solicitar Presupuesto
+                        </a>
                     </div>
                 </div>
 
@@ -661,7 +704,12 @@
                     <div class="card-content">
                         <h3>Pesebreras y Comederos Techados</h3>
                         <p>Mobiliario rural pesado para alimentación. Estructuras autoportantes provistas de cubiertas impermeables, fabricadas con maderas seleccionadas para prevenir daños por uso o intemperie.</p>
-                        <a href="tel:+34667891570" class="btn">Solicitar Presupuesto</a>
+                        <a href="https://wa.me/34667891570?text=Hola!%20Me%20interesa%20solicitar%20un%20presupuesto%20para%20Pesebreras%20y%20Comederos%20Techados%20en%20Mallorca." target="_blank" class="btn btn-whatsapp-card">
+                            <svg class="whatsapp-icon" viewBox="0 0 24 24">
+                                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.963C16.59 1.98 14.117.953 11.994.953c-5.44 0-9.866 4.372-9.87 9.802 0 1.714.463 3.39 1.337 4.88l-.99 3.613 3.7-.94c1.5.85 2.92 1.27 4.41 1.27zM17.65 14.3c-.31-.16-1.84-.91-2.12-1.01-.28-.1-.49-.16-.69.16-.21.3-.79.99-.97 1.2-.18.22-.36.24-.67.09-.31-.15-1.3-.49-2.48-1.54-.92-.82-1.54-1.84-1.72-2.15-.18-.31-.02-.47.14-.63.14-.14.31-.36.46-.54.15-.18.2-.3.3-.5.1-.2.05-.38-.03-.54-.08-.16-.69-1.67-.95-2.29-.25-.61-.51-.53-.69-.54-.18-.01-.39-.01-.59-.01-.2 0-.53.07-.8.37-.28.3-1.07 1.05-1.07 2.56s1.09 2.97 1.24 3.17c.15.2 2.15 3.29 5.21 4.61.73.31 1.3.5 1.74.64.73.23 1.39.2 1.92.12.59-.09 1.84-.75 2.1-1.47.26-.71.26-1.32.18-1.46-.08-.14-.3-.22-.61-.38z"/>
+                            </svg>
+                            Solicitar Presupuesto
+                        </a>
                     </div>
                 </div>
 
@@ -674,7 +722,12 @@
                     <div class="card-content">
                         <h3>Picaderos y Pistas Circulares</h3>
                         <p>Montaje perimetral circular específico para el entrenamiento a la cuerda de caballos. Postes torneados empotrados de forma robusta para garantizar contención y alta seguridad estructural.</p>
-                        <a href="tel:+34667891570" class="btn">Solicitar Presupuesto</a>
+                        <a href="https://wa.me/34667891570?text=Hola!%20Me%20interesa%20solicitar%20un%20presupuesto%20para%20Picaderos%20y%20Pistas%20Circulares%20en%20Mallorca." target="_blank" class="btn btn-whatsapp-card">
+                            <svg class="whatsapp-icon" viewBox="0 0 24 24">
+                                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.963C16.59 1.98 14.117.953 11.994.953c-5.44 0-9.866 4.372-9.87 9.802 0 1.714.463 3.39 1.337 4.88l-.99 3.613 3.7-.94c1.5.85 2.92 1.27 4.41 1.27zM17.65 14.3c-.31-.16-1.84-.91-2.12-1.01-.28-.1-.49-.16-.69.16-.21.3-.79.99-.97 1.2-.18.22-.36.24-.67.09-.31-.15-1.3-.49-2.48-1.54-.92-.82-1.54-1.84-1.72-2.15-.18-.31-.02-.47.14-.63.14-.14.31-.36.46-.54.15-.18.2-.3.3-.5.1-.2.05-.38-.03-.54-.08-.16-.69-1.67-.95-2.29-.25-.61-.51-.53-.69-.54-.18-.01-.39-.01-.59-.01-.2 0-.53.07-.8.37-.28.3-1.07 1.05-1.07 2.56s1.09 2.97 1.24 3.17c.15.2 2.15 3.29 5.21 4.61.73.31 1.3.5 1.74.64.73.23 1.39.2 1.92.12.59-.09 1.84-.75 2.1-1.47.26-.71.26-1.32.18-1.46-.08-.14-.3-.22-.61-.38z"/>
+                            </svg>
+                            Solicitar Presupuesto
+                        </a>
                     </div>
                 </div>
 
@@ -687,7 +740,12 @@
                     <div class="card-content">
                         <h3>Líneas de Boxes Alineadas</h3>
                         <p>Proyectos de ingeniería de gran envergadura para yeguadas y centros ecuestres. Módulos alineados con herrajes de seguridad reforzados, separadores óptimos y ventilación integrada.</p>
-                        <a href="tel:+34667891570" class="btn">Solicitar Presupuesto</a>
+                        <a href="https://wa.me/34667891570?text=Hola!%20Me%20interesa%20solicitar%20un%20presupuesto%20para%20L%C3%ADneas%20de%20Boxes%20Alineadas%20en%20Mallorca." target="_blank" class="btn btn-whatsapp-card">
+                            <svg class="whatsapp-icon" viewBox="0 0 24 24">
+                                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.963C16.59 1.98 14.117.953 11.994.953c-5.44 0-9.866 4.372-9.87 9.802 0 1.714.463 3.39 1.337 4.88l-.99 3.613 3.7-.94c1.5.85 2.92 1.27 4.41 1.27zM17.65 14.3c-.31-.16-1.84-.91-2.12-1.01-.28-.1-.49-.16-.69.16-.21.3-.79.99-.97 1.2-.18.22-.36.24-.67.09-.31-.15-1.3-.49-2.48-1.54-.92-.82-1.54-1.84-1.72-2.15-.18-.31-.02-.47.14-.63.14-.14.31-.36.46-.54.15-.18.2-.3.3-.5.1-.2.05-.38-.03-.54-.08-.16-.69-1.67-.95-2.29-.25-.61-.51-.53-.69-.54-.18-.01-.39-.01-.59-.01-.2 0-.53.07-.8.37-.28.3-1.07 1.05-1.07 2.56s1.09 2.97 1.24 3.17c.15.2 2.15 3.29 5.21 4.61.73.31 1.3.5 1.74.64.73.23 1.39.2 1.92.12.59-.09 1.84-.75 2.1-1.47.26-.71.26-1.32.18-1.46-.08-.14-.3-.22-.61-.38z"/>
+                            </svg>
+                            Solicitar Presupuesto
+                        </a>
                     </div>
                 </div>
 
@@ -700,7 +758,12 @@
                     <div class="card-content">
                         <h3>Cancelas y Portones de Doble Hoja</h3>
                         <p>Fabricación e instalación de puertas vehiculares industriales de doble hoja. Estructura robusta montada sobre pilares de alta carga para permitir el paso seguro de maquinaria pesada.</p>
-                        <a href="tel:+34667891570" class="btn">Solicitar Presupuesto</a>
+                        <a href="https://wa.me/34667891570?text=Hola!%20Me%20interesa%20solicitar%20un%20presupuesto%20para%20Cancelas%20y%20Portones%20de%20Doble%20Hoja%20en%20Mallorca." target="_blank" class="btn btn-whatsapp-card">
+                            <svg class="whatsapp-icon" viewBox="0 0 24 24">
+                                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.963C16.59 1.98 14.117.953 11.994.953c-5.44 0-9.866 4.372-9.87 9.802 0 1.714.463 3.39 1.337 4.88l-.99 3.613 3.7-.94c1.5.85 2.92 1.27 4.41 1.27zM17.65 14.3c-.31-.16-1.84-.91-2.12-1.01-.28-.1-.49-.16-.69.16-.21.3-.79.99-.97 1.2-.18.22-.36.24-.67.09-.31-.15-1.3-.49-2.48-1.54-.92-.82-1.54-1.84-1.72-2.15-.18-.31-.02-.47.14-.63.14-.14.31-.36.46-.54.15-.18.2-.3.3-.5.1-.2.05-.38-.03-.54-.08-.16-.69-1.67-.95-2.29-.25-.61-.51-.53-.69-.54-.18-.01-.39-.01-.59-.01-.2 0-.53.07-.8.37-.28.3-1.07 1.05-1.07 2.56s1.09 2.97 1.24 3.17c.15.2 2.15 3.29 5.21 4.61.73.31 1.3.5 1.74.64.73.23 1.39.2 1.92.12.59-.09 1.84-.75 2.1-1.47.26-.71.26-1.32.18-1.46-.08-.14-.3-.22-.61-.38z"/>
+                            </svg>
+                            Solicitar Presupuesto
+                        </a>
                     </div>
                 </div>
 
@@ -742,13 +805,17 @@
         </div>
     </section>
 
-    <!-- BANNER CTA DE CONTACTO RÁPIDO -->
+    <!-- BANNER CTA DE CONTACTO RÁPIDO (MODIFICADO CON PULSACIÓN DE WHATSAPP) -->
     <section class="cta-banner">
         <div class="cta-banner-content container">
             <h2>Planifica la infraestructura de tu propiedad</h2>
             <p>Contacta de forma directa para concretar una visita técnica al terreno y solicitar un presupuesto a medida desglosado.</p>
-            <a href="tel:+34667891570" class="phone-pulse-btn">
-                <span class="material-symbols-outlined">phone_in_talk</span> LLAMAR AL 667 891 570
+            <!-- BOTÓN GRANDE DEL FINAL CON WHATSAPP EN LUGAR DE LLAMADA -->
+            <a href="https://wa.me/34667891570?text=Hola!%20Me%20gustar%C3%ADa%20solicitar%20un%20presupuesto%20para%20un%20proyecto." target="_blank" class="phone-pulse-btn">
+                <svg class="whatsapp-icon-large" viewBox="0 0 24 24">
+                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.963C16.59 1.98 14.117.953 11.994.953c-5.44 0-9.866 4.372-9.87 9.802 0 1.714.463 3.39 1.337 4.88l-.99 3.613 3.7-.94c1.5.85 2.92 1.27 4.41 1.27zM17.65 14.3c-.31-.16-1.84-.91-2.12-1.01-.28-.1-.49-.16-.69.16-.21.3-.79.99-.97 1.2-.18.22-.36.24-.67.09-.31-.15-1.3-.49-2.48-1.54-.92-.82-1.54-1.84-1.72-2.15-.18-.31-.02-.47.14-.63.14-.14.31-.36.46-.54.15-.18.2-.3.3-.5.1-.2.05-.38-.03-.54-.08-.16-.69-1.67-.95-2.29-.25-.61-.51-.53-.69-.54-.18-.01-.39-.01-.59-.01-.2 0-.53.07-.8.37-.28.3-1.07 1.05-1.07 2.56s1.09 2.97 1.24 3.17c.15.2 2.15 3.29 5.21 4.61.73.31 1.3.5 1.74.64.73.23 1.39.2 1.92.12.59-.09 1.84-.75 2.1-1.47.26-.71.26-1.32.18-1.46-.08-.14-.3-.22-.61-.38z"/>
+                </svg>
+                SOLICITAR PRESUPUESTO POR WHATSAPP
             </a>
         </div>
     </section>
